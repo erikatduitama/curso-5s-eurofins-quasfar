@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eurofins · 5S en Laboratorio</title>
+<link rel="stylesheet" href="styles.css">
+<script src="scorm.js"></script>
+</head>
+<body>
+<header class="top">
+ <div class="topin">
+  <img class="brand" src="media/eurofins_quasfar_logo.png" alt="Eurofins">
+  <div class="course-name"><b>5S EN EL LABORATORIO</b><span>Pequeñas acciones, grandes resultados</span></div>
+  <div class="counter"><span id="loc">Inicio</span><br><b id="count">1 / 12</b></div>
+  <button class="audio-toggle" id="audioToggle" onclick="toggleNarration()">🔊 Narración</button>
+ </div>
+ <div class="progress-track"><div class="progress" id="progress"></div></div>
+</header>
+
+<div class="shell"><main class="course">
+
+<section class="slide active" data-module="Inicio">
+ <div class="hero">
+  <div class="eyebrow">Eurofins Quasfar · Formación de Calidad</div>
+  <div class="hero-split">
+    <div>
+      <h1>5S en laboratorio: <em>ver, decidir y mantener</em></h1>
+      <p class="lead">Un recorrido corto con situaciones reales de laboratorio para llegar al taller listo para intervenir un área.</p>
+      <span class="pill orange">≈ 15–20 min · videos + audio + ejercicios · aprobación 80 %</span>
+    </div>
+    <div class="hero-visual">
+      <img src="media/lab_cartoon_people_clean.jpg" alt="Laboratorio ilustrado y anonimizado">
+    </div>
+  </div>
+</div>
+ <div class="body">
+  <div class="feature-list">
+    <div class="feature"><div class="num">1</div><div><b>Qué vas a aprender</b><div>Clasificar, ordenar, limpiar e inspeccionar, estandarizar y mantener.</div></div></div>
+    <div class="feature"><div class="num">2</div><div><b>Cómo está diseñado</b><div>Microvideos, narración, ejemplos de laboratorio y ejercicios aplicados.</div></div></div>
+    <div class="feature"><div class="num">3</div><div><b>Qué harás después</b><div>Aplicarlo en una zona real y dejar evidencia antes/después + estándar visual.</div></div></div>
+  </div>
+</div>
+ <div class="nav"><span></span><button class="next" onclick="next()">Comenzar →</button></div>
+</section>
+
+<section class="slide" data-module="Observar" data-video="video1"
+ data-narration="Observa un laboratorio real. No busques solamente suciedad. Mira materiales que no corresponden al puesto, elementos sin ubicación definida, cables, recipientes, herramientas y cualquier condición que pueda dificultar encontrar, usar o devolver lo necesario.">
+ <div class="body">
+  <span class="pill">Video 1 · laboratorio real</span>
+  <h2>Antes de hablar de conceptos: observa</h2>
+  <p>Busca condiciones que puedan generar pérdida de tiempo, confusión o dificultad para trabajar.</p>
+  <div class="video-wrap"><video id="video1" class="video" preload="auto" muted playsinline>
+    <source src="media/video_observacion_real.mp4" type="video/mp4">
+  </video></div>
+  <div class="media-row"><button class="replay" onclick="replayCurrentMedia()">↻ Repetir video con narración</button></div>
+ </div>
+ <div class="nav"><button class="prev" onclick="prev()">← Atrás</button><button class="next" onclick="next()">Continuar →</button></div>
+</section>
+
+<section class="slide" data-module="Diagnóstico"
+ data-narration="Ahora explora la imagen. Las oportunidades no están señaladas. Haz clic directamente en las zonas donde veas algo que debería evaluarse con criterio cinco eses. Después de cada selección correcta, verás qué representa, por qué es una oportunidad de mejora y con qué eses se relaciona.">
+ <div class="exercise-head">
+   <div>
+     <span class="pill orange">Ejercicio práctico</span>
+     <h2>Encuentra 5 oportunidades de mejora 5S</h2>
+     <p>Haz clic en las zonas de la imagen donde identifiques oportunidades de mejora. Los puntos no están marcados.</p>
+   </div>
+   <div class="found-count"><b id="counterHits">0/5</b><span>oportunidades encontradas</span></div>
+ </div>
+
+ <div class="body exercise-body">
+   <div class="exercise-grid">
+     <div>
+       <div class="hotspot-wrap" id="hotwrap">
+         <img src="media/lab_cartoon_people_clean.jpg" alt="Laboratorio anonimizado para identificar oportunidades 5S">
+
+         <button class="hot" aria-label="Oportunidad 1"
+           style="left:2%;top:36%;width:16%;height:29%"
+           data-index="1"
+           data-title="Cabina con elementos a revisar"
+           data-why="Revisa qué elementos realmente deben permanecer dentro de la cabina y si los que se mantienen tienen una ubicación clara. Una cabina con elementos innecesarios o sin ubicación definida dificulta la operación y la limpieza."
+           data-s="1S · Clasificar|2S · Ordenar"
+           onclick="hit(this)"></button>
+
+         <button class="hot" aria-label="Oportunidad 2"
+           style="left:21%;top:56%;width:25%;height:22%"
+           data-index="2"
+           data-title="Mesón frontal con exceso de elementos"
+           data-why="Hay una alta concentración de tubos, racks, recipientes, papeles y pequeños equipos sobre el puesto. Esto hace más difícil identificar lo necesario, devolverlo a su lugar y limpiar la superficie."
+           data-s="1S · Clasificar|2S · Ordenar"
+           onclick="hit(this)"></button>
+
+         <button class="hot" aria-label="Oportunidad 3"
+           style="left:46%;top:58%;width:22%;height:24%"
+           data-index="3"
+           data-title="Materiales mezclados en la esquina del mesón"
+           data-why="Se mezclan frascos, recipientes, consumibles y papeles sin una ubicación visual claramente definida. Esto dificulta la limpieza y la inspección, y puede ocultar condiciones anormales."
+           data-s="2S · Ordenar|3S · Limpiar"
+           onclick="hit(this)"></button>
+
+         <button class="hot" aria-label="Oportunidad 4"
+           style="left:64%;top:42%;width:19%;height:19%"
+           data-index="4"
+           data-title="Mesón del fondo sin estándar visual evidente"
+           data-why="Aunque los materiales puedan ser necesarios, no es evidente cuál es el estado esperado ni dónde debe quedar cada cosa. La oportunidad está en definir ubicación y hacer visible el estándar."
+           data-s="2S · Ordenar|4S · Estandarizar"
+           onclick="hit(this)"></button>
+
+         <button class="hot" aria-label="Oportunidad 5"
+           style="left:80%;top:34%;width:18%;height:24%"
+           data-index="5"
+           data-title="Mesón destinado a equipos"
+           data-why="Los equipos sí pertenecen a este mesón. La oportunidad 5S está en definir claramente la ubicación de accesorios, consumibles y elementos asociados para que el área sea fácil de usar, limpiar y mantener."
+           data-s="2S · Ordenar|4S · Estandarizar"
+           onclick="hit(this)"></button>
+       </div>
+     </div>
+
+     <aside class="side-guide">
+       <div class="guide-icon">💡</div>
+       <h3>Selecciona una zona</h3>
+       <p>Cuando encuentres una oportunidad, aquí verás la explicación y la relación con las 5S.</p>
+       <div class="guide-divider"></div>
+       <b class="guide-title">Recuerda las 5S</b>
+       <div class="mini5s">
+         <div class="mini-row s1"><span class="mini-num">1</span><div><b>Clasificar</b><small>Eliminar lo innecesario</small></div></div>
+         <div class="mini-row s2"><span class="mini-num">2</span><div><b>Ordenar</b><small>Un lugar para cada cosa</small></div></div>
+         <div class="mini-row s3"><span class="mini-num">3</span><div><b>Limpiar</b><small>Mantener y detectar anomalías</small></div></div>
+         <div class="mini-row s4"><span class="mini-num">4</span><div><b>Estandarizar</b><small>Definir el estado esperado</small></div></div>
+         <div class="mini-row s5"><span class="mini-num">5</span><div><b>Mantener</b><small>Disciplina en el tiempo</small></div></div>
+       </div>
+     </aside>
+   </div>
+
+   <div id="hotfb" class="feedback opportunity-feedback"></div>
+ </div>
+
+ <div class="nav"><button class="prev" onclick="prev()">← Atrás</button><button class="next" onclick="next()">Continuar →</button></div>
+</section>
+
+<section class="slide" data-module="Conceptos"
+ data-narration="Las cinco eses forman una secuencia. Primero se decide qué debe permanecer. Luego se define dónde debe estar. Después se limpia mientras se inspecciona. El estado esperado se hace visible y finalmente se crean hábitos para mantenerlo.">
+ <div class="body">
+  <span class="pill">Concepto</span>
+  <h2>¿Qué son las 5S?</h2>
+  <div class="grid5">
+   <div class="card s-card s1"><span class="s-circle">1</span><b>Clasificar</b><small>Eliminar lo innecesario</small></div>
+   <div class="card s-card s2"><span class="s-circle">2</span><b>Ordenar</b><small>Un lugar para cada cosa</small></div>
+   <div class="card s-card s3"><span class="s-circle">3</span><b>Limpiar</b><small>Mantener y detectar anomalías</small></div>
+   <div class="card s-card s4"><span class="s-circle">4</span><b>Estandarizar</b><small>Definir el estado esperado</small></div>
+   <div class="card s-card s5"><span class="s-circle">5</span><b>Mantener</b><small>Disciplina en el tiempo</small></div>
+  </div>
+  <div class="key">Clasificar → Ordenar → Limpiar → Estandarizar → Mantener</div>
+ </div>
+ <div class="nav"><button class="prev" onclick="prev()">← Atrás</button><button class="next" onclick="next()">1S →</button></div>
+</section>
+
+<section class="slide" data-module="1S · Clasificar"
+ data-narration="Primera ese, clasificar. La pregunta no es dónde guardo esto, sino si realmente debe permanecer aquí, en esta cantidad y en este momento.">
+ <div class="body">
+  <div class="s-banner s1"><span class="s-circle">1</span><div><b>1S · Clasificar</b><span>Separar lo necesario de lo innecesario</span></div></div>
+  <h2>Clasificar antes de ordenar</h2>
+  <div class="key">¿Esto se necesita aquí, en esta cantidad y en este momento?</div>
+  <div class="grid2">
+   <div class="card"><b>Ejemplos de laboratorio</b>Reactivos vencidos, duplicados abiertos, material de otro ensayo, consumibles sin uso, documentos o accesorios obsoletos.</div>
+   <div class="card"><b>Cuando no puedes decidir de inmediato</b>Usa una tarjeta roja y define quién toma la decisión y cuándo.</div>
+  </div>
+  <h3>Un gabinete está saturado. ¿Cuál es el primer paso?</h3>
+  <div class="answers shuffle">
+   <button class="option" data-ok="0" onclick="conceptAnswer(this,'fb1')">Comprar más espacio de almacenamiento.</button>
+   <button class="option" data-ok="1" onclick="conceptAnswer(this,'fb1')">Identificar qué se necesita, qué está vencido y qué debe evaluarse o retirarse.</button>
+   <button class="option" data-ok="0" onclick="conceptAnswer(this,'fb1')">Ordenar todos los frascos por tamaño.</button>
+  </div>
+  <div id="fb1" class="feedback" data-correct="Correcto. Antes de buscar dónde guardar, primero debes decidir qué realmente debe permanecer." data-wrong="Todavía no. La 1S empieza separando lo necesario de lo innecesario; ordenar o ampliar espacio viene después."></div>
+ </div>
+ <div class="nav"><button class="prev" onclick="prev()">← Atrás</button><button class="next" onclick="next()">2S →</button></div>
+</section>
+
+<section class="slide" data-module="2S · Ordenar"
+ data-narration="Segunda ese, ordenar. Un lugar para cada cosa, definido por frecuencia de uso, seguridad y facilidad para encontrar y devolver.">
+ <div class="body">
+  <div class="s-banner s2"><span class="s-circle">2</span><div><b>2S · Ordenar</b><span>Un lugar definido para cada cosa</span></div></div>
+  <h2>Encontrar y devolver sin perder tiempo</h2>
+  <div class="key">¿Cualquier analista podría encontrarlo y devolverlo rápidamente?</div>
+  <div class="dragarea">
+   <div class="draggables">
+    <div class="drag" draggable="true" data-target="daily">Micropipeta de uso diario</div>
+    <div class="drag" draggable="true" data-target="weekly">Kit de mantenimiento semanal</div>
+    <div class="drag" draggable="true" data-target="occasional">Repuesto de uso eventual</div>
+   </div>
+   <div class="dropzones">
+    <div class="drop" data-zone="daily"><h4>Alcance inmediato</h4></div>
+    <div class="drop" data-zone="weekly"><h4>Almacenamiento cercano</h4></div>
+    <div class="drop" data-zone="occasional"><h4>Almacenamiento secundario</h4></div>
+   </div>
+  </div>
+  <div id="dragfb" class="feedback">Correcto. La frecuencia de uso es uno de los criterios para definir ubicación.</div>
+ </div>
+ <div class="nav"><button class="prev" onclick="prev()">← Atrás</button><button class="next" onclick="next()">3S →</button></div>
+</section>
+
+<section class="slide" data-module="3S · Limpiar"
+ data-narration="Tercera ese, limpiar. En laboratorio limpiar no es solamente aseo. También es inspeccionar y hacer visibles fugas, deterioros, derrames, residuos o condiciones anormales.">
+ <div class="body">
+  <div class="s-banner s3"><span class="s-circle">3</span><div><b>3S · Limpiar</b><span>Limpiar también es inspeccionar</span></div></div>
+  <h2>Hacer visibles las anomalías</h2>
+  <div class="key">¿La suciedad o el desorden están escondiendo una anomalía?</div>
+  <div class="grid2">
+   <div class="card"><b>Ejemplos</b>Fugas pequeñas, tubing deteriorado, derrames, corrosión, cables dañados, residuos o material acumulado.</div>
+   <div class="card"><b>Idea central</b>Un área limpia permite detectar antes una condición anormal.</div>
+  </div>
+  <h3>¿Qué frase representa mejor la 3S?</h3>
+  <div class="answers shuffle">
+   <button class="option" data-ok="1" onclick="conceptAnswer(this,'fb3')">Limpiar también sirve para inspeccionar y detectar condiciones anormales.</button>
+   <button class="option" data-ok="0" onclick="conceptAnswer(this,'fb3')">La limpieza corresponde únicamente al personal de aseo.</button>
+   <button class="option" data-ok="0" onclick="conceptAnswer(this,'fb3')">El objetivo principal es que el área se vea bonita.</button>
+  </div>
+  <div id="fb3" class="feedback" data-correct="Correcto. Una zona limpia facilita detectar fugas, deterioro, residuos o condiciones anormales." data-wrong="Revisa el concepto: en 5S, limpiar no es solo estética ni una tarea exclusiva del personal de aseo; también es inspeccionar."></div>
+ </div>
+ <div class="nav"><button class="prev" onclick="prev()">← Atrás</button><button class="next" onclick="next()">Video →</button></div>
+</section>
+
+<section class="slide" data-module="Estandarizar" data-video="video2"
+ data-narration="El objetivo no es dejar el área bonita por un día. Clasifica lo necesario, define ubicaciones, limpia mientras inspeccionas y deja señales visuales que permitan reconocer el estado esperado.">
+ <div class="body">
+  <span class="pill orange">Video 2 · imágenes reales</span>
+  <h2>Del orden al estándar</h2>
+  <p>Observa cómo cambia la pregunta: no basta con que hoy esté organizado; debe ser fácil saber cómo tiene que quedar mañana.</p>
+  <div class="video-wrap"><video id="video2" class="video" preload="auto" muted playsinline>
+    <source src="media/video_estandar_real.mp4" type="video/mp4">
+  </video></div>
+  <div class="media-row"><button class="replay" onclick="replayCurrentMedia()">↻ Repetir video con narración</button></div>
+ </div>
+ <div class="nav"><button class="prev" onclick="prev()">← Atrás</button><button class="next" onclick="next()">4S →</button></div>
+</section>
+
+<section class="slide" data-module="4S · Estandarizar"
+ data-narration="Cuarta ese, estandarizar. El estado correcto debe ser visible sin depender de la memoria de una sola persona. Fotografías, etiquetas, ubicaciones, cantidades y responsables ayudan a hacerlo evidente.">
+ <div class="body">
+  <div class="s-banner s4"><span class="s-circle">4</span><div><b>4S · Estandarizar</b><span>Hacer visible cómo debe quedar el área</span></div></div>
+  <h2>Que el estándar no dependa de la memoria</h2>
+  <div class="key">¿Cómo sabe cualquier persona que el área está correcta?</div>
+  <div class="grid2">
+   <div class="card"><b>Área ordenada</b>Puede depender de que alguien recuerde dónde va todo.</div>
+   <div class="card"><b>Área estandarizada</b>Hace visibles ubicación, identificación, cantidades, estado esperado y responsable.</div>
+  </div>
+  <h3>¿Cuál es el mejor estándar visual?</h3>
+  <div class="answers shuffle">
+   <button class="option" data-ok="0" onclick="conceptAnswer(this,'fb4')">Un aviso: “Mantener el área organizada”.</button>
+   <button class="option" data-ok="0" onclick="conceptAnswer(this,'fb4')">Que cada analista organice según su experiencia.</button>
+   <button class="option" data-ok="1" onclick="conceptAnswer(this,'fb4')">Foto del estado esperado + ubicaciones + identificación + responsable.</button>
+  </div>
+  <div id="fb4" class="feedback" data-correct="Correcto. El estándar debe permitir que cualquier persona reconozca cómo debe quedar el área sin depender de la memoria." data-wrong="No todavía. Un mensaje general o la experiencia individual no hacen visible el estado esperado; necesitas referencias claras y verificables."></div>
+ </div>
+ <div class="nav"><button class="prev" onclick="prev()">← Atrás</button><button class="next" onclick="next()">5S →</button></div>
+</section>
+
+<section class="slide" data-module="5S · Mantener"
+ data-narration="Quinta ese, mantener. Una jornada de orden no es todavía un sistema cinco eses. Necesitamos rutina, responsable, revisión y acciones cuando el estándar deja de cumplirse.">
+ <div class="body">
+  <div class="s-banner s5"><span class="s-circle">5</span><div><b>5S · Mantener</b><span>Disciplina, rutina y seguimiento</span></div></div>
+  <h2>Evitar volver al estado inicial</h2>
+  <div class="key">¿Qué hará que dentro de tres meses siga igual?</div>
+  <div class="grid2">
+   <div class="card"><b>Rutina</b>Revisión corta al cierre, autoinspección o frecuencia definida.</div>
+   <div class="card"><b>Seguimiento</b>Responsable, auditoría 5S y acciones ante desviaciones.</div>
+  </div>
+  <h3>Un mes después el área vuelve a desordenarse. ¿Qué faltó?</h3>
+  <div class="answers shuffle">
+   <button class="option" data-ok="0" onclick="conceptAnswer(this,'fb5')">Comprar más muebles.</button>
+   <button class="option" data-ok="1" onclick="conceptAnswer(this,'fb5')">Seguimiento, hábitos y disciplina sobre el estándar.</button>
+   <button class="option" data-ok="0" onclick="conceptAnswer(this,'fb5')">Una jornada de limpieza más larga.</button>
+  </div>
+  <div id="fb5" class="feedback" data-correct="Correcto. La 5S convierte la mejora puntual en hábito mediante rutina, responsable y seguimiento." data-wrong="Revisa la 5S: si el área vuelve a desordenarse, el problema no se resuelve solo con más muebles o otra limpieza; falta sostener el estándar."></div>
+ </div>
+ <div class="nav"><button class="prev" onclick="prev()">← Atrás</button><button class="next" onclick="next()">Evaluación →</button></div>
+</section>
+
+<section class="slide" data-module="Evaluación">
+ <div class="body">
+  <span class="pill orange">Evaluación final</span>
+  <h2>Decisiones rápidas de laboratorio</h2>
+  <p>Responde las 5 preguntas. Aprobación: <b>80 %</b>.</p>
+
+  <div class="quiz-block">
+   <h3>1. Encuentras reactivos duplicados y algunos vencidos. ¿Qué aplicas primero?</h3>
+   <div class="answers shuffle finalq" data-q="q1">
+    <button class="option" data-ok="0">2S · Ordenar</button>
+    <button class="option" data-ok="1">1S · Clasificar</button>
+    <button class="option" data-ok="0">4S · Estandarizar</button>
+   </div>
+  </div>
+
+  <div class="quiz-block">
+   <h3>2. Las herramientas están limpias, pero nadie sabe dónde devolverlas.</h3>
+   <div class="answers shuffle finalq" data-q="q2">
+    <button class="option" data-ok="0">3S · Limpiar</button>
+    <button class="option" data-ok="0">5S · Mantener</button>
+    <button class="option" data-ok="1">2S · Ordenar</button>
+   </div>
+  </div>
+
+  <div class="quiz-block">
+   <h3>3. Durante la limpieza encuentras una fuga pequeña.</h3>
+   <div class="answers shuffle finalq" data-q="q3">
+    <button class="option" data-ok="1">La 3S está ayudando también a inspeccionar.</button>
+    <button class="option" data-ok="0">La fuga no tiene relación con 5S.</button>
+    <button class="option" data-ok="0">Solo importa que se vea limpio.</button>
+   </div>
+  </div>
+
+  <div class="quiz-block">
+   <h3>4. El área queda organizada, pero depende de que una persona recuerde dónde va todo.</h3>
+   <div class="answers shuffle finalq" data-q="q4">
+    <button class="option" data-ok="0">Está completa la implementación.</button>
+    <button class="option" data-ok="1">Falta 4S · Estandarizar.</button>
+    <button class="option" data-ok="0">Falta 1S · Clasificar.</button>
+   </div>
+  </div>
+
+  <div class="quiz-block">
+   <h3>5. Tres semanas después vuelven a aparecer elementos fuera de lugar.</h3>
+   <div class="answers shuffle finalq" data-q="q5">
+    <button class="option" data-ok="0">Repetir únicamente la limpieza.</button>
+    <button class="option" data-ok="0">Comprar más almacenamiento.</button>
+    <button class="option" data-ok="1">Revisar la rutina, responsable y seguimiento de 5S.</button>
+   </div>
+  </div>
+
+  <button class="replay" onclick="grade()">Calificar evaluación</button>
+  <div id="gradefb" class="feedback"></div>
+ </div>
+ <div class="nav"><button class="prev" onclick="prev()">← Atrás</button><button class="next" onclick="next()">Cierre →</button></div>
+</section>
+
+<section class="slide" data-module="Misión presencial"
+ data-narration="Has terminado el módulo. En el taller práctico vas a aplicar estas cinco decisiones en una zona real del laboratorio y dejar evidencia del antes, del después y del estándar que permitirá sostener la mejora.">
+ <div class="hero">
+  <div class="eyebrow">Misión presencial</div>
+  <h1>Ahora aplícalo en <em>una zona real</em></h1>
+  <p class="lead">Foto antes → aplicar 1S, 2S y 3S → estándar 4S → rutina 5S → foto después.</p>
+ </div>
+ <div class="body">
+  <div class="practical-steps">
+    <div class="step-card"><span>1</span><b>Foto antes</b><small>Observar sin intervenir.</small></div>
+    <div class="step-card"><span>2</span><b>Aplicar 1S–3S</b><small>Clasificar, ordenar, limpiar e inspeccionar.</small></div>
+    <div class="step-card"><span>3</span><b>Crear estándar 4S</b><small>Hacer visible cómo debe quedar.</small></div>
+    <div class="step-card"><span>4</span><b>Definir rutina 5S</b><small>Responsable, frecuencia y seguimiento.</small></div>
+    <div class="step-card"><span>5</span><b>Foto después</b><small>Mostrar la transformación.</small></div>
+  </div>
+  <div class="card mission-card"><b>Pregunta para iniciar el taller</b>¿Qué está haciendo hoy más difícil encontrar, usar, inspeccionar o devolver lo que necesitamos?</div>
+ </div>
+ <div class="nav"><button class="prev" onclick="prev()">← Atrás</button><button class="next" onclick="finishCourse()">Finalizar</button></div>
+</section>
+
+</main></div>
+<div class="footer"><span>Eurofins Quasfar · 5S en Laboratorio</span><span>Formación previa · Taller práctico</span></div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let idx=0, narrationOn=true, chosenVoice=null, hotspotHits=0;
+let quizSelections={};
+
+function scoreVoice(v){
+  let s=0, lang=(v.lang||'').toLowerCase(), name=(v.name||'').toLowerCase();
+  if(lang.startsWith('es-co')) s+=100;
+  else if(lang.startsWith('es-')) s+=70;
+  if(name.includes('microsoft')||name.includes('google')) s+=30;
+  if(/helena|elvira|paulina|ximena|sabina|alvaro|jorge/.test(name)) s+=20;
+  if(/espeak|festival/.test(name)) s-=100;
+  return s;
+}
+function chooseVoice(){
+  if(!('speechSynthesis' in window)) return null;
+  let vs=speechSynthesis.getVoices();
+  let spanish=vs.filter(v=>(v.lang||'').toLowerCase().startsWith('es'));
+  if(!spanish.length) return null;
+  spanish.sort((a,b)=>scoreVoice(b)-scoreVoice(a));
+  chosenVoice=spanish[0];
+  return chosenVoice;
+}
+if('speechSynthesis' in window){
+  speechSynthesis.onvoiceschanged=chooseVoice;
+  chooseVoice();
+}
+function speak(text){
+  if(!narrationOn || !text || !('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  let u=new SpeechSynthesisUtterance(text);
+  u.lang=(chosenVoice && chosenVoice.lang)||'es-CO';
+  if(chosenVoice) u.voice=chosenVoice;
+  u.rate=1.18; u.pitch=1.02; u.volume=1;
+  speechSynthesis.speak(u);
+}
+function stopAll(){
+  if('speechSynthesis' in window) speechSynthesis.cancel();
+  document.querySelectorAll('video').forEach(v=>{v.pause();});
+}
+function playSlideMedia(){
+  stopAll();
+  let slide=slides[idx], text=slide.dataset.narration||'';
+  let vid=slide.dataset.video;
+  if(vid){
+    let v=document.getElementById(vid);
+    if(v){v.currentTime=0; v.play().catch(()=>{});}
+  }
+  if(text) setTimeout(()=>speak(text),160);
+}
+function replayCurrentMedia(){ playSlideMedia(); }
+function show(i){
+  stopAll();
+  idx=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,n)=>s.classList.toggle('active',n===idx));
+  document.getElementById('progress').style.width=((idx+1)/slides.length*100)+'%';
+  document.getElementById('count').textContent=(idx+1)+' / '+slides.length;
+  document.getElementById('loc').textContent=slides[idx].dataset.module||'';
+  window.scrollTo(0,0);
+  setTimeout(playSlideMedia,100);
+}
+function next(){show(idx+1)}
+function prev(){show(idx-1)}
+function toggleNarration(){
+  narrationOn=!narrationOn;
+  if(!narrationOn && 'speechSynthesis' in window) speechSynthesis.cancel();
+  document.getElementById('audioToggle').textContent=narrationOn?'🔊 Narración':'🔇 Narración';
+}
+function hit(el){
+  if(el.classList.contains('hit')) return;
+  el.classList.add('hit');
+  hotspotHits++;
+  document.getElementById('counterHits').textContent=hotspotHits+'/5';
+
+  let fb=document.getElementById('hotfb');
+  fb.style.display='block';
+
+  let idx=el.dataset.index||hotspotHits;
+  let title=el.dataset.title||'Oportunidad identificada';
+  let why=el.dataset.why||'';
+  let tags=(el.dataset.s||'').split('|').filter(Boolean)
+    .map(t=>'<span class="s-tag">'+t+'</span>').join('');
+
+  fb.innerHTML=
+    '<div class="feedback-title"><span class="feedback-check">✓</span> Oportunidad '+idx+' identificada</div>'+
+    '<div class="feedback-content"><b>'+title+'</b>'+
+    '<p>'+why+'</p>'+
+    '<div class="s-related"><strong>S relacionadas:</strong> '+tags+'</div></div>';
+
+  if(hotspotHits===5){
+    fb.innerHTML += '<div class="complete-note">✓ Completaste las 5 oportunidades. Ya puedes continuar.</div>';
+  }
+}
+function conceptAnswer(btn,id){
+  let box=btn.closest('.answers');
+  box.querySelectorAll('.option').forEach(b=>b.classList.remove('correct','wrong'));
+  let ok=btn.dataset.ok==='1';
+  btn.classList.add(ok?'correct':'wrong');
+  let fb=document.getElementById(id);
+  fb.style.display='block';
+  let msg=ok ? fb.dataset.correct : fb.dataset.wrong;
+  fb.innerHTML='<b>'+(ok?'✓ Bien. ':'↺ Intenta de nuevo. ')+'</b>'+(msg||'Revisa la idea clave.');
+}
+document.querySelectorAll('.drag').forEach(el=>{
+  el.addEventListener('dragstart',e=>e.dataTransfer.setData('text/plain',el.dataset.target));
+});
+document.querySelectorAll('.drop').forEach(z=>{
+  z.addEventListener('dragover',e=>e.preventDefault());
+  z.addEventListener('drop',e=>{
+    e.preventDefault();
+    let target=e.dataTransfer.getData('text/plain');
+    let item=[...document.querySelectorAll('.drag')].find(d=>d.dataset.target===target);
+    if(item && z.dataset.zone===target){
+      z.appendChild(item); item.draggable=false; item.classList.add('correct');
+    }else if(item){
+      item.classList.add('wrong'); setTimeout(()=>item.classList.remove('wrong'),700);
+    }
+    if(document.querySelectorAll('.drop .drag').length===3)
+      document.getElementById('dragfb').style.display='block';
+  });
+});
+function shuffleAnswers(){
+  document.querySelectorAll('.answers.shuffle').forEach(box=>{
+    let nodes=[...box.children];
+    for(let i=nodes.length-1;i>0;i--){
+      let j=Math.floor(Math.random()*(i+1));
+      [nodes[i],nodes[j]]=[nodes[j],nodes[i]];
+    }
+    nodes.forEach(n=>box.appendChild(n));
+  });
+}
+document.querySelectorAll('.finalq .option').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    let box=btn.closest('.finalq'), q=box.dataset.q;
+    box.querySelectorAll('.option').forEach(b=>b.classList.remove('selected','correct','wrong'));
+    btn.classList.add('selected');
+    quizSelections[q]=btn.dataset.ok==='1';
+  });
+});
+function grade(){
+  let qs=['q1','q2','q3','q4','q5'];
+  if(qs.some(q=>!(q in quizSelections))){
+    let fb=document.getElementById('gradefb');
+    fb.style.display='block';
+    fb.innerHTML='<b>Faltan respuestas.</b> Responde las cinco preguntas antes de calificar.';
+    return;
+  }
+
+  document.querySelectorAll('.finalq').forEach(box=>{
+    let selected=box.querySelector('.option.selected');
+    if(selected){
+      selected.classList.remove('selected');
+      selected.classList.add(selected.dataset.ok==='1' ? 'correct' : 'wrong');
+    }
+  });
+
+  let correct=qs.filter(q=>quizSelections[q]).length;
+  let score=correct*20;
+  scormSetScore(score);
+
+  let fb=document.getElementById('gradefb');
+  fb.style.display='block';
+  fb.innerHTML='<div class="scorebox">'+score+'%</div>'+
+    (score>=80
+      ? '<b>✓ Aprobado.</b> Demostraste el criterio necesario para pasar al taller práctico.'
+      : '<b>Aún no.</b> Revisa las respuestas marcadas en rojo, ajusta tu selección y vuelve a calificar.');
+}
+function finishCourse(){
+  scormComplete(); stopAll();
+  alert('Módulo finalizado. Continúa con el taller práctico 5S.');
+}
+shuffleAnswers();
+show(0);
+</script>
+</body>
+</html>
